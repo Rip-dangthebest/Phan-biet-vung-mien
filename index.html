@@ -2,53 +2,41 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Phân loại Bắc Kỳ - Nam Kỳ</title>
+  <title>Phân loại tỉnh thành</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 50px;
-      background-color: #f4f4f4;
     }
-
     h1 {
-      font-size: 48px;   /* chữ to */
-      color: darkblue;
+      font-size: 32px;
+      margin-bottom: 20px;
     }
-
-    input, button {
-      padding: 10px;
-      font-size: 20px;   /* chữ trong input to hơn */
-      margin: 10px;
-    }
-
     #result {
-      font-size: 36px;   /* kết quả in ra to */
+      font-size: 28px;
       font-weight: bold;
-      color: darkred;
       margin-top: 20px;
     }
-
-    img {
-      margin-top: 30px;
-      width: 300px; /* chỉnh kích thước ảnh */
+    #image img {
+      margin-top: 20px;
+      max-width: 400px;
       border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <h1>Phân loại tỉnh thành</h1>
-  <input type="text" id="provinceInput" placeholder="Nhập tên tỉnh thành...">
+  <input type="text" id="provinceInput" placeholder="Nhập tên tỉnh...">
   <button onclick="checkProvince()">Kiểm tra</button>
-  <p id="result"></p>
 
-  <!-- Chèn ảnh -->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/320px-Flag_of_Vietnam.svg.png" alt="Quốc kỳ Việt Nam">
+  <div id="result"></div>
+  <div id="image"></div>
 
   <script>
     const bacProvinces = [
       "Hà Nội", "Hải Phòng", "Nam Định", "Thái Bình", "Quảng Ninh", "Bắc Giang",
-      "Bắc Ninh", "Hà Nam", "Hải Dương", "Hòa Bình", "Lạng Sơn", "Lào Cai", 
+      "Bắc Ninh", "Hà Nam", "Hải Dương", "Hòa Bình", "Lạng Sơn", "Lào Cai",
       "Yên Bái", "Phú Thọ", "Thái Nguyên", "Tuyên Quang", "Vĩnh Phúc", "Điện Biên",
       "Lai Châu", "Sơn La", "Cao Bằng", "Hà Giang", "Ninh Bình", "Bắc Kạn"
     ];
@@ -56,16 +44,19 @@
     function checkProvince() {
       const input = document.getElementById("provinceInput").value.trim();
       const result = document.getElementById("result");
+      const image = document.getElementById("image");
 
       if (bacProvinces.includes(input)) {
         result.textContent = "Bắc Kỳ";
+        image.innerHTML = '<img src="bac.jpg" alt="Bắc Kỳ">';
       } else if (input !== "") {
         result.textContent = "Nam Kỳ";
+        image.innerHTML = '<img src="nam.jpg" alt="Nam Kỳ">';
       } else {
         result.textContent = "Vui lòng nhập tên tỉnh";
+        image.innerHTML = "";
       }
     }
   </script>
-  <img src="542011348_2093712441398299_9002020005768826712_n.png" alt="Mô tả ảnh" width="400">
 </body>
 </html>
