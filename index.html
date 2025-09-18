@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Phân loại Bắc Kỳ - Nam Kỳ</title>
+</head>
+<body>
+  <h1>Phân loại tỉnh thành</h1>
+  <input type="text" id="provinceInput" placeholder="Nhập tên tỉnh thành...">
+  <button onclick="checkProvince()">Kiểm tra</button>
+  <p id="result"></p>
+
+  <script>
+    const bacProvinces = [
+      "Hà Nội", "Hải Phòng", "Nam Định", "Thái Bình", "Quảng Ninh", "Bắc Giang",
+      "Bắc Ninh", "Hà Nam", "Hải Dương", "Hòa Bình", "Lạng Sơn", "Lào Cai", 
+      "Yên Bái", "Phú Thọ", "Thái Nguyên", "Tuyên Quang", "Vĩnh Phúc", "Điện Biên",
+      "Lai Châu", "Sơn La", "Cao Bằng", "Hà Giang", "Ninh Bình", "Bắc Kạn"
+    ];
+
+    function checkProvince() {
+      const input = document.getElementById("provinceInput").value.trim();
+      const result = document.getElementById("result");
+
+      if (bacProvinces.includes(input)) {
+        result.textContent = "Bắc Kỳ";
+      } else if (input !== "") {
+        result.textContent = "Nam Kỳ";
+      } else {
+        result.textContent = "Vui lòng nhập tên tỉnh";
+      }
+    }
+  </script>
+</body>
+</html>
